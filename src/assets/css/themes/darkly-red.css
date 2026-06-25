@@ -141,8 +141,8 @@
   color-scheme: dark;
   --bs-body-color: #dee2e6;
   --bs-body-color-rgb: 222, 226, 230;
-  --bs-body-bg: #222;
-  --bs-body-bg-rgb: 34, 34, 34;
+  --bs-body-bg: #0b1220;
+  --bs-body-bg-rgb: 11, 18, 32;
   --bs-emphasis-color: #fff;
   --bs-emphasis-color-rgb: 255, 255, 255;
   --bs-secondary-color: rgba(222, 226, 230, 0.75);
@@ -185,7 +185,7 @@
   --bs-code-color: rgb(230.4, 132.6, 181.2);
   --bs-highlight-color: #dee2e6;
   --bs-highlight-bg: #333;
-  --bs-border-color: rgba(222, 226, 230, 0.25);
+  --bs-border-color: #e8eefb;
   --bs-border-color-translucent: rgba(255, 255, 255, 0.15);
   --bs-form-valid-color: rgb(102, 214.8, 186);
   --bs-form-valid-border-color: rgb(102, 214.8, 186);
@@ -2136,7 +2136,7 @@ progress {
   appearance: none;
   background-color: #444;
   background-clip: padding-box;
-  border: var(--bs-border-width) solid #222;
+  border: var(--bs-border-width) solid #0b1220;
   border-radius: var(--bs-border-radius);
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -2289,7 +2289,7 @@ textarea.form-control-lg {
   background-repeat: no-repeat;
   background-position: right 0.75rem center;
   background-size: 16px 12px;
-  border: var(--bs-border-width) solid #222;
+  border: var(--bs-border-width) solid #0b1220;
   border-radius: var(--bs-border-radius);
   transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
 }
@@ -2673,7 +2673,7 @@ textarea.form-control-lg {
   text-align: center;
   white-space: nowrap;
   background-color: #444;
-  border: var(--bs-border-width) solid #222;
+  border: var(--bs-border-width) solid #0b1220;
   border-radius: var(--bs-border-radius);
 }
 
@@ -3372,7 +3372,7 @@ textarea.form-control-lg {
   --bs-dropdown-box-shadow: var(--bs-box-shadow);
   --bs-dropdown-link-color: #fff;
   --bs-dropdown-link-hover-color: #fff;
-  --bs-dropdown-link-hover-bg: #375a7f;
+  --bs-dropdown-link-hover-bg: #40E0D0;
   --bs-dropdown-link-active-color: #fff;
   --bs-dropdown-link-active-bg: #e74c3c;
   --bs-dropdown-link-disabled-color: var(--bs-tertiary-color);

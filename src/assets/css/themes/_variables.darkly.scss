@@ -16,16 +16,21 @@ $orange: #f1641e;
 $yellow: #f39c12;
 $green: #00bc8c;
 $cyan: #3498db;
+$navy: #0b1220;
+$darkblue: #00008B;
+$midnightblue: #04047D;
+$turquoise: #40E0D0;
+$dfblue: #3aa0ff;
 
-$primary: $blue;
+$primary: $turquoise;
 $secondary: $gray-500;
 $success: $green;
-$info: $orange;
+$info: $dfblue;
 $dark: $gray-300;
 
 $body-color-dark: $gray-300;
-$body-bg-dark: $gray-900;
-$border-color-dark: rgba($body-color-dark, 0.25);
+$body-bg-dark: $navy;
+$border-color-dark: #e8eefb;
 $mark-bg-dark: #333;
 $text-muted: $gray-600;
 $yiq-contrasted-threshold: 175;
