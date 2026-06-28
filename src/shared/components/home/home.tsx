@@ -432,7 +432,12 @@ export class Home extends Component<HomeRouteProps, HomeState> {
         />
         {site_setup && (
           <div className="row">
-            <div className="col-12 col-md-8 col-lg-9">
+            <aside className="d-none d-lg-block col-lg-2">
+              <div className="mc-left-rail p-2 mb-3 rounded border border-secondary text-center text-muted">
+                Ad space
+              </div>
+            </aside>
+            <div className="col-12 col-md-8 col-lg-7">
               <DonationDialog
                 myUserInfo={myUserInfo}
                 onHideDialog={() => handleHideDonationDialog(myUserInfo)}
@@ -533,6 +538,35 @@ export class Home extends Component<HomeRouteProps, HomeState> {
           siteLanguages={this.state.siteRes.discussion_languages}
           activePlugins={this.state.siteRes.active_plugins}
         />
+        <div className="card mb-3">
+          <div className="card-body">
+            <Link
+              className="btn btn-light border-light-subtle d-block mb-2 w-100"
+              to="/communities"
+            >
+              {I18NextService.i18n.t("communities")}
+            </Link>
+            <Link
+              className="btn btn-light border-light-subtle d-block mb-2 w-100"
+              to="/multi_communities"
+            >
+              {I18NextService.i18n.t("multi_communities")}
+            </Link>
+            <hr />
+            <h6 className="fw-bold">Popular Communities</h6>
+            <ul className="list-unstyled mb-0">
+              <li className="mb-1">
+                <Link to="/c/example1">example1</Link>
+              </li>
+              <li className="mb-1">
+                <Link to="/c/example2">example2</Link>
+              </li>
+              <li className="mb-1">
+                <Link to="/c/example3">example3</Link>
+              </li>
+            </ul>
+          </div>
+        </div>
         {this.hasFollows && (
           <div className="accordion">
             <section id="sidebarSubscribed" className="card mb-3">

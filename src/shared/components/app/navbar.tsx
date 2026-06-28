@@ -9,7 +9,6 @@ import {
 import { Component, createRef } from "inferno";
 import { NavLink } from "inferno-router";
 import { GetSiteResponse, MyUserInfo } from "lemmy-js-client";
-import { donateLemmyUrl } from "@utils/config";
 import {
   I18NextService,
   UserService,
@@ -49,6 +48,16 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
     unreadReportCount: 0,
     unreadApplicationCount: 0,
     unreadPendingFollowsCount: 0,
+  };
+  searchInputRef = createRef<HTMLInputElement>();
+
+  handleSearchSubmit = (e: Event) => {
+    e.preventDefault();
+    const q = this.searchInputRef.current?.value.trim();
+    if (q) {
+      const context = this.context as RouterContext;
+      context.router.history.push(`/search?q=${encodeURIComponent(q)}`);
+    }
   };
 
   componentWillMount() {
@@ -113,7 +122,7 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
       <div className="shadow-sm">
         {/* The mobile navbar */}
         <nav
-          className="navbar navbar-expand-md navbar-light p-0 px-3 container-lg"
+          className="navbar navbar-expand-md navbar-light p-0 px-3 container-fluid"
           id="navbar"
         >
           <NavLink
@@ -221,7 +230,27 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
             id="navbarDropdown"
             ref={this.mobileMenuRef}
           >
-            <ul id="navbarLinks" className="me-auto navbar-nav">
+            <form
+              className="mc-search d-none d-md-flex"
+              style={{
+                position: "absolute",
+                left: "50%",
+                transform: "translateX(-50%)",
+                width: "40%",
+                "max-width": "600px",
+              }}
+              onSubmit={this.handleSearchSubmit}
+            >
+              <input
+                ref={this.searchInputRef}
+                type="search"
+                className="form-control mc-search-input w-100"
+                placeholder="Search MassChattr"
+                aria-label="Search MassChattr"
+              />
+            </form>
+            <ul id="navbarLinks" className="navbar-nav ms-auto">
+              {/* Moved to sidebar:
               <li className="nav-item">
                 <NavLink
                   to="/communities"
@@ -242,6 +271,7 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                   {I18NextService.i18n.t("multi_communities")}
                 </NavLink>
               </li>
+              
               <li className="nav-item">
                 <a
                   className="nav-link d-inline-flex align-items-center d-md-inline-block"
@@ -254,8 +284,10 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                   </span>
                 </a>
               </li>
+              */}
             </ul>
             <ul id="navbarIcons" className="navbar-nav">
+              {/* Removed - using search bar instead
               <li id="navSearch" className="nav-item">
                 <NavLink
                   to="/search"
@@ -269,6 +301,7 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                   </span>
                 </NavLink>
               </li>
+              */}
               {person ? (
                 <>
                   <li id="navMessages" className="nav-item">
