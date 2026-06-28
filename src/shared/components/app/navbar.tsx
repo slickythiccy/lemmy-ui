@@ -475,7 +475,7 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                   <li className="nav-item">
                     <NavLink
                       to="/login"
-                      className="nav-link"
+                      className="nav-link mc-bubble mc-bubble-login"
                       title={I18NextService.i18n.t("login")}
                       onMouseUp={() => handleCollapseClick(this)}
                     >
@@ -486,7 +486,7 @@ export class Navbar extends Component<NavbarProps, NavbarState> {
                     <li className="nav-item">
                       <NavLink
                         to="/signup"
-                        className="nav-link"
+                        className="nav-link mc-bubble mc-bubble-signup"
                         title={I18NextService.i18n.t("sign_up")}
                         onMouseUp={() => handleCollapseClick(this)}
                       >

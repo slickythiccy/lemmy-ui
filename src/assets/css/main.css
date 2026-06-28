@@ -575,3 +575,32 @@ em-emoji-picker {
 .viewer-transition {
   transition-duration: 0.1s; /* 0.3s -> 0.1s */
 }
+/* MassChattr bubble buttons */
+.mc-bubble {
+  border-radius: 999px !important;
+  padding: 0.4rem 1.1rem !important;
+  font-weight: 600;
+  transition:
+    transform 0.12s ease,
+    box-shadow 0.12s ease,
+    filter 0.12s ease;
+  margin-left: 0.4rem;
+}
+.mc-bubble-login {
+  border: 2px solid #3aa0ff !important;
+  color: #3aa0ff !important;
+}
+.mc-bubble-login:hover {
+  background: rgba(58, 160, 255, 0.12) !important;
+  transform: translateY(-1px);
+}
+.mc-bubble-signup {
+  background: linear-gradient(135deg, #3aa0ff, #19d3c5) !important;
+  color: #0b1220 !important;
+  border: 2px solid transparent !important;
+}
+.mc-bubble-signup:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 6px 18px rgba(58, 160, 255, 0.45);
+  filter: brightness(1.05);
+}
