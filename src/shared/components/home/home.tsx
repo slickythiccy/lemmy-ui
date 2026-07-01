@@ -251,7 +251,6 @@ export function getHomeQueryParams(
   myUserInfo?: MyUserInfo,
 ): HomeProps {
   const local_user = myUserInfo?.local_user_view.local_user;
-  const local_site = siteRes.site_view.local_site;
   return getQueryParams<HomeProps, Fallbacks>(
     {
       sort: getSortTypeFromQuery,
@@ -265,11 +264,8 @@ export function getHomeQueryParams(
     },
     source,
     {
-      sort:
-        local_user?.default_post_sort_type ?? local_site.default_post_sort_type,
-      listingType:
-        local_user?.default_listing_type ??
-        local_site.default_post_listing_type,
+      sort: local_user?.default_post_sort_type ?? "hot",
+      listingType: local_user?.default_listing_type ?? "all",
       time:
         secondsToLargestInterval(local_user?.default_post_time_range_seconds) ??
         ALL_TIME_INTERVAL,

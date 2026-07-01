@@ -211,7 +211,7 @@ export function PostPublishedTime({ post }: PostPublishedTimeProps) {
     <MomentTime
       published={post.published_at}
       updated={post.updated_at}
-      showAgo={false}
+      showAgo
     />
   );
 }

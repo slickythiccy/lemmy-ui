@@ -17,15 +17,12 @@ type SortDropdownProps<T extends string> = {
 };
 
 const postSortOptions: FilterOption<PostSortType>[] = [
-  { i18n: "active", value: "active" },
   { i18n: "hot", value: "hot" },
-  { i18n: "scaled", value: "scaled" },
   { i18n: "new", value: "new" },
-  { i18n: "old", value: "old" },
-  { i18n: "top", value: "top" },
-  { i18n: "most_comments", value: "most_comments" },
-  { i18n: "new_comments", value: "new_comments" },
   { i18n: "controversial", value: "controversial" },
+  { i18n: "old", value: "old" },
+  { i18n: "new_comments", value: "new_comments" },
+  { i18n: "most_comments", value: "most_comments" },
 ];
 
 export function PostSortDropdown({

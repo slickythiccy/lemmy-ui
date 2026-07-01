@@ -950,8 +950,7 @@ export function hideAnimatedImage(
  **/
 export function defaultPostListingMode(isoData: IsoData): PostListingMode {
   return (
-    isoData.myUserInfo?.local_user_view.local_user.post_listing_mode ??
-    isoData.siteRes.site_view.local_site.default_post_listing_mode
+    isoData.myUserInfo?.local_user_view.local_user.post_listing_mode ?? "card"
   );
 }
 

@@ -36,7 +36,6 @@ import {
 } from "lemmy-js-client";
 import {
   PostName,
-  PostCreatedLine,
   PostPublishedTime,
   UrlLine,
   TorrentHelp,
@@ -49,7 +48,9 @@ import classNames from "classnames";
 import { MetadataCard } from "./metadata-card";
 import { hideAnimatedImage, showMedia } from "@utils/app";
 import { PictrsImage } from "@components/common/pictrs-image";
-
+import { CommunityLink } from "../community/community-link";
+import { PersonListing } from "../person/person-listing";
+import { I18NextService } from "../../services";
 type PostListingCardState = {
   viewSource: boolean;
 };
@@ -130,22 +131,25 @@ export class PostListingCard extends Component<
             "border-top border-light-subtle": p.topBorder,
           })}
         >
-          <div className="row mb-1">
+          <div className="row mb-1 align-items-center">
             <div className="col flex-grow-1">
-              <PostCreatedLine
-                postView={p.postView}
-                showCommunity={p.showCommunity}
-                showPublishedTime={false}
-                showUrlLine={false}
-                showPostBadges={false}
-                mutePersonName={p.mutePersonName}
-                muteCommunityName={p.muteCommunityName}
-                hideAvatar={p.hideAvatar}
-                allLanguages={p.allLanguages}
-                myUserInfo={p.myUserInfo}
-              />
+              {p.showCommunity && (
+                <CommunityLink
+                  community={p.postView.community}
+                  myUserInfo={p.myUserInfo}
+                  muted={p.muteCommunityName}
+                />
+              )}
             </div>
-            <div className="col-auto small text-muted ps-1">
+            <div className="col-auto small text-muted ps-1 d-flex align-items-center gap-1">
+              <span>{I18NextService.i18n.t("by")}</span>
+              <PersonListing
+                person={p.postView.creator}
+                myUserInfo={p.myUserInfo}
+                muted={p.mutePersonName}
+                hideAvatar={p.hideAvatar}
+              />
+              <span>·</span>
               <PostPublishedTime post={p.postView.post} />
             </div>
           </div>
