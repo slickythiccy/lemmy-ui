@@ -103,7 +103,6 @@ export class TimeIntervalFilter extends Component<Props, State> {
     return (
       <FilterChipDropdown
         buttonRef={this.buttonRef}
-        label="time_filter"
         allOptions={allOptions}
         currentOption={currentOption}
         onSelect={value => {

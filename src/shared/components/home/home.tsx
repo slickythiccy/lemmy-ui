@@ -964,7 +964,7 @@ export class Home extends Component<HomeRouteProps, HomeState> {
                 <PostSortDropdown
                   currentOption={mixedToPostSortType(sort)}
                   onSelect={val => handleSortChange(this, val)}
-                  showLabel
+                  showLabel={false}
                 />
               </div>
             </>
@@ -978,37 +978,40 @@ export class Home extends Component<HomeRouteProps, HomeState> {
             </div>
           )}
           {/** TODO add show read posts also **/}
-          <div className="col">
-            <ListingTypeDropdown
-              currentOption={
-                listingType ??
-                this.state.siteRes.site_view.local_site
-                  .default_post_listing_type
-              }
-              showLocal={showLocal(this.isoData)}
-              showSubscribed
-              showSuggested={
-                !!this.isoData.siteRes.site_view.local_site
-                  .suggested_multi_community_id
-              }
-              showLabel
-              myUserInfo={myUserInfo}
-              onSelect={val => handleListingTypeChange(this, val)}
-            />
-          </div>
+          {myUserInfo && (
+            <div className="col">
+              <ListingTypeDropdown
+                currentOption={
+                  listingType ??
+                  this.state.siteRes.site_view.local_site
+                    .default_post_listing_type
+                }
+                showLocal={showLocal(this.isoData)}
+                showSubscribed
+                showSuggested={
+                  !!this.isoData.siteRes.site_view.local_site
+                    .suggested_multi_community_id
+                }
+                showLabel
+                myUserInfo={myUserInfo}
+                onSelect={val => handleListingTypeChange(this, val)}
+              />
+            </div>
+          )}
           <div className="col">
             <PostListingModeDropdown
               currentOption={this.state.postListingMode}
               onSelect={val => handlePostListingModeChange(this, val)}
-              showLabel
             />
           </div>
-          <div className="col">
-            <PostOrCommentTypeDropdown
-              currentOption={postOrCommentType}
-              onSelect={val => handlePostOrCommentTypeChange(this, val)}
-            />
-          </div>
+          {myUserInfo && (
+            <div className="col">
+              <PostOrCommentTypeDropdown
+                currentOption={postOrCommentType}
+                onSelect={val => handlePostOrCommentTypeChange(this, val)}
+              />
+            </div>
+          )}
           {!hideTimeSelect && (
             <div className="col">
               <TimeIntervalFilter

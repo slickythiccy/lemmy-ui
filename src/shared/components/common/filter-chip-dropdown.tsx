@@ -4,12 +4,14 @@ import classNames from "classnames";
 import { NoOptionI18nKeys } from "i18next";
 import { RefObject } from "inferno";
 import { InfernoNode } from "inferno";
+import { Icon } from "./icon";
 
 export type FilterOption<T extends string> = {
   value: T;
   i18n?: NoOptionI18nKeys;
   // Use this to override i18n
   noI18n?: string;
+  icon?: string;
 };
 
 type FilterChipDropdownProps<T extends string> = {
@@ -22,6 +24,7 @@ type FilterChipDropdownProps<T extends string> = {
   buttonRef?: RefObject<HTMLButtonElement>;
   autoClose?: "true" | "false" | "outside" | "inside";
   noCurrentText?: string;
+  iconOnly?: boolean;
 };
 
 export function FilterChipDropdown<T extends string>({
@@ -34,6 +37,7 @@ export function FilterChipDropdown<T extends string>({
   buttonRef,
   autoClose,
   noCurrentText = "",
+  iconOnly = false,
 }: FilterChipDropdownProps<T>) {
   const id = randomStr();
   const labelTitle = label ? `${I18NextService.i18n.t(label)}: ` : "";
@@ -54,7 +58,11 @@ export function FilterChipDropdown<T extends string>({
           data-bs-toggle="dropdown"
           data-bs-auto-close={autoClose}
         >
-          {buttonTitle}
+          {iconOnly && currentOption?.icon ? (
+            <Icon icon={currentOption.icon} />
+          ) : (
+            buttonTitle
+          )}
         </button>
         <ul className="dropdown-menu">
           {allOptions.map(opt => (
@@ -70,6 +78,7 @@ export function FilterChipDropdown<T extends string>({
                 aria-selected={currentOption?.value === opt.value}
                 onClick={() => onSelect(opt.value)}
               >
+                {opt.icon && <Icon icon={opt.icon} classes="me=2" />}
                 {filterOptioni18nStr(opt)}
               </button>
             </li>

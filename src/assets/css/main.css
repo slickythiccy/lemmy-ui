@@ -672,3 +672,18 @@ em-emoji-picker {
 .post-container {
   cursor: pointer;
 }
+/* Sleek filter dropdowns - remove gray button look */
+.dropdown-toggle.btn-light {
+  background: transparent !important;
+  border: none !important;
+  color: #aebfdc !important;
+  font-weight: 600;
+  padding: 0.25rem 0.5rem !important;
+  transition: color 0.12s ease;
+}
+.dropdown-toggle.btn-light:hover,
+.dropdown-toggle.btn-light:focus {
+  background: rgba(174, 191, 220, 0.08) !important;
+  color: #e8eefb !important;
+  box-shadow: none !important;
+}

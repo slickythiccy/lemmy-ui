@@ -1,6 +1,3 @@
-import { relTags, sortingHelpUrl } from "@utils/config";
-import { I18NextService } from "../../services";
-import { Icon } from "./icon";
 import {
   CommentSortType,
   CommunitySortType,
@@ -40,7 +37,6 @@ export function PostSortDropdown({
         onSelect={onSelect}
         className={className}
       />
-      <SortingHelp />
     </div>
   );
 }
@@ -67,7 +63,6 @@ export function CommentSortDropdown({
         onSelect={onSelect}
         className={className}
       />
-      <SortingHelp />
     </div>
   );
 }
@@ -104,7 +99,6 @@ export function CommunitiesSortDropdown({
         onSelect={onSelect}
         className={className}
       />
-      <SortingHelp />
     </div>
   );
 }
@@ -135,20 +129,6 @@ export function MultiCommunitiesSortDropdown({
         onSelect={onSelect}
         className={className}
       />
-      <SortingHelp />
     </div>
-  );
-}
-
-function SortingHelp() {
-  return (
-    <a
-      className="sort-select-icon text-muted ms-2"
-      href={sortingHelpUrl}
-      rel={relTags}
-      title={I18NextService.i18n.t("sorting_help")}
-    >
-      <Icon icon="help-circle" classes="icon-inline" />
-    </a>
   );
 }
