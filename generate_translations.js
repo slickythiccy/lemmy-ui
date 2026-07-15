@@ -11,6 +11,9 @@ fs.readdir(translationDir, (_err, files) => {
       const json = JSON.parse(
         fs.readFileSync(translationDir + filename, "utf8"),
       );
+      if (lang === "en") {
+        json.hot = "Peak";
+      }
       let data = `export const ${lang} = {\n  translation: {`;
       for (const key in json) {
         if (key in json) {
