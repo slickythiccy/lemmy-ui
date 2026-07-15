@@ -525,15 +525,17 @@ export class Home extends Component<HomeRouteProps, HomeState> {
 
     return (
       <div id="sidebarContainer">
-        <SiteSidebar
-          site={site}
-          admins={admins}
-          localSite={local_site}
-          myUserInfo={this.isoData.myUserInfo}
-          allLanguages={this.state.siteRes.all_languages}
-          siteLanguages={this.state.siteRes.discussion_languages}
-          activePlugins={this.state.siteRes.active_plugins}
-        />
+        {this.isoData.myUserInfo && (
+          <SiteSidebar
+            site={site}
+            admins={admins}
+            localSite={local_site}
+            myUserInfo={this.isoData.myUserInfo}
+            allLanguages={this.state.siteRes.all_languages}
+            siteLanguages={this.state.siteRes.discussion_languages}
+            activePlugins={this.state.siteRes.active_plugins}
+          />
+        )}
         <div className="card mb-3">
           <div className="card-body">
             <Link

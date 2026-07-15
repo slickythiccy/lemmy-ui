@@ -172,7 +172,49 @@ export async function createSsrHtml(
       </noscript>
   
       <div id='root'>${root}</div>
-      <script defer src='${getStaticDir()}/js/client.js'></script>
+  <div id="mc-splash">
+        <div id="mc-splash-bg"></div>
+        <img src="${getStaticDir()}/assets/icons/loading-animation.svg" alt="Loading MassChattr" style="width:220px;height:220px;position:relative;z-index:1;" />
+      </div>
+      <style nonce="${cspNonce}">
+        #mc-splash {
+          position: fixed;
+          inset: 0;
+          z-index: 99999;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: opacity 0.5s ease;
+        }
+        #mc-splash-bg {
+          position: absolute;
+          inset: 0;
+          background: #0b1220;
+          filter: blur(20px);
+          transition: filter 0.8s ease;
+        }
+        #mc-splash.mc-unblur #mc-splash-bg {
+          filter: blur(0px);
+        }
+        #mc-splash.mc-hide {
+          opacity: 0;
+          pointer-events: none;
+        }
+      </style>
+      <script nonce="${cspNonce}">
+        window.addEventListener('load', function () {
+          var s = document.getElementById('mc-splash');
+          setTimeout(function () {
+            if (s) { s.classList.add('mc-unblur'); }
+          }, 1000);
+          setTimeout(function () {
+            if (s) {
+              s.classList.add('mc-hide');
+              setTimeout(function () { s.remove(); }, 600);
+            }
+          }, 1600);
+        });
+      </script>
     </body>
   </html>
   `;
