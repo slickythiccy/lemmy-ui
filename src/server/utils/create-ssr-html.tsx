@@ -190,7 +190,7 @@ export async function createSsrHtml(
           position: absolute;
           inset: 0;
           background: #0b1220;
-          filter: blur(20px);
+          filter: blur(0px);
           transition: filter 0.8s ease;
         }
         #mc-splash.mc-unblur #mc-splash-bg {
