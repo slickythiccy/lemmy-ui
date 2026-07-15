@@ -544,12 +544,6 @@ export class Home extends Component<HomeRouteProps, HomeState> {
             >
               {I18NextService.i18n.t("communities")}
             </Link>
-            <Link
-              className="btn btn-light border-light-subtle d-block mb-2 w-100"
-              to="/multi_communities"
-            >
-              {I18NextService.i18n.t("multi_communities")}
-            </Link>
             <hr />
             <h6 className="fw-bold">Popular Communities</h6>
             <ul className="list-unstyled mb-0">
