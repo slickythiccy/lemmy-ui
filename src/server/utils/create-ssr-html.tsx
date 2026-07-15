@@ -215,6 +215,7 @@ export async function createSsrHtml(
           }, 1600);
         });
       </script>
+      <script defer src='${getStaticDir()}/js/client.js'></script>
     </body>
   </html>
   `;
