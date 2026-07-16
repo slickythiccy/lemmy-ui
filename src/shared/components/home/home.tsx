@@ -117,6 +117,7 @@ import { DonationDialog } from "./donation-dialog";
 import { nowBoolean } from "@utils/date";
 import { BannedDialog } from "./banned-dialog";
 import { PostListingModeDropdown } from "@components/common/post-listing-mode-dropdown";
+import { CommunitiesBox } from "./communities-box";
 import { MultiCommunityLink } from "@components/multi-community/multi-community-link";
 import { ListingTypeDropdown } from "@components/common/listing-type-dropdown";
 import {
@@ -536,29 +537,7 @@ export class Home extends Component<HomeRouteProps, HomeState> {
             activePlugins={this.state.siteRes.active_plugins}
           />
         )}
-        <div className="card mb-3">
-          <div className="card-body">
-            <Link
-              className="btn btn-light border-light-subtle d-block mb-2 w-100"
-              to="/communities"
-            >
-              {I18NextService.i18n.t("communities")}
-            </Link>
-            <hr />
-            <h6 className="fw-bold">Popular Communities</h6>
-            <ul className="list-unstyled mb-0">
-              <li className="mb-1">
-                <Link to="/c/example1">example1</Link>
-              </li>
-              <li className="mb-1">
-                <Link to="/c/example2">example2</Link>
-              </li>
-              <li className="mb-1">
-                <Link to="/c/example3">example3</Link>
-              </li>
-            </ul>
-          </div>
-        </div>
+        <CommunitiesBox />
         {this.hasFollows && (
           <div className="accordion">
             <section id="sidebarSubscribed" className="card mb-3">

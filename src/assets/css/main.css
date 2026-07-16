@@ -687,3 +687,17 @@ em-emoji-picker {
   color: #e8eefb !important;
   box-shadow: none !important;
 }
+.mc-see-more {
+  display: inline-block;
+  margin-top: 0.5rem;
+  color: #3aa0ff;
+  text-decoration: underline;
+  cursor: pointer;
+  font-size: 0.9rem;
+  background: none;
+  border: none;
+  padding: 0;
+}
+.mc-see-more:hover {
+  color: #19d3c5;
+}
